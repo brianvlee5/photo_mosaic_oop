@@ -1,21 +1,13 @@
 #include "photo_mosaic.h"
 
 void PhotoMosaic::runMosaic(){
-    string dir = "Image-Folder/cifar10", big_pic_dir = "Image-Folder/oldman.jpg", rgb_rec_file_dir= "rgb_rec.txt";
     string test_dir;
-    vector<string> pic_dir_vec;//for storing all the small pics' directory
     vector<Photo_data> data_vec;//vector for storing rgb/photo dir datas
-    ofstream rgb_rec_file_o;//storing the dir and rgb averages from small pic
     ifstream rgb_rec_file_i;//for reading the rec file
+    Photo_data last_used;
 
-    //rgb_rec_file.open(rgb_rec_file_dir);
-    big_pic = new RGBImage();//newing the pointer in PhotoMosaic class
-    big_pic->LoadImage(big_pic_dir);
 
     int w = big_pic->getW(), h = big_pic->getH();
-    listDirectory(pic_dir_vec, dir);
-    //getSmallRgb(rgb_rec_file, pic_dir_vec);
-    printf("Done calculating materials\n");
 
     rgb_rec_file_i.open(rgb_rec_file_dir);
 
@@ -25,15 +17,12 @@ void PhotoMosaic::runMosaic(){
 
     for(int i=0; i+GRID_SIZE<w; i+=GRID_SIZE){
         for(int j=0; j+GRID_SIZE<h; j+=GRID_SIZE){
-            big_pic->replaceGrid(i, j, data_vec);
+            big_pic->replaceGrid(i, j, data_vec, last_used);
         }
     }
 
-    big_pic->Display_CMD();
     data_vec.clear();
-    //small_pic_file.close();
     //delete []big_pic;
-    //for(int i=0; i<)
 }
 
 void PhotoMosaic::listDirectory(vector<string> &pic_dir_vec, string dir){

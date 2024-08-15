@@ -5,7 +5,7 @@
 #include "photo_data.h"
 
 #define GRID_SIZE 32
-#define DIFF_THRESHOLD 20
+#define DIFF_THRESHOLD 30
 
 using namespace std;
 
@@ -29,8 +29,8 @@ public:
     virtual void contrastStretch() = 0;
     virtual void mosaicFilter(int box_size) = 0;
     virtual void getRGBAvg(int &sum_r, int &sum_g, int &sum_b) = 0;
-    virtual void replaceGrid(int i, int j, vector<Photo_data> &data_vec) = 0;
-    virtual string findGrid(vector<Photo_data> &data_vec, int big_r, int big_g, int big_b) = 0;
+    virtual void replaceGrid(int i, int j, vector<Photo_data> &data_vec, Photo_data &last_used) = 0;
+    virtual string findGrid(vector<Photo_data> &data_vec, int big_r, int big_g, int big_b, Photo_data &last_used) = 0;
 
 };
 
