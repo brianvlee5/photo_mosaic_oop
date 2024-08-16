@@ -11,7 +11,10 @@ GrayImage::GrayImage(int width, int height, int **pixels_in){
 }
 
 GrayImage::~GrayImage(){
-    ;
+    for(int i=0; i<h; i++){
+        delete[] pixels[i];
+    } 
+    delete[] pixels;
 }
 
 bool GrayImage::LoadImage(string filename){
@@ -105,6 +108,11 @@ void GrayImage::sobelGradient(){
             pixels[j][i] = pixels_cp[j][i];
         }
     }
+
+    for(int i=0; i<h; i++){
+        delete[] pixels_cp[i];
+    }
+    delete[] pixels_cp;
 }
 
 
@@ -158,4 +166,11 @@ void GrayImage::replaceGrid(int i, int j, vector<Photo_data> &data_vec, Photo_da
 }
 string GrayImage::findGrid(vector<Photo_data> &data_vec, int big_r, int big_g, int big_b, Photo_data &last_used){
 
+}
+
+void GrayImage::freePixels(){
+    for(int i=0; i<h; i++){
+        delete[] pixels[i];
+    }
+    delete[] pixels;
 }

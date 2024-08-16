@@ -28,27 +28,32 @@ int main(int argc, char *argv[]){
     // some bit field filter design driven code here
     img1->LoadImage("Image-Folder/lena.jpg");
     img1->DumpImage("img1.jpg");
+    img1->freePixels();
 
     printf("step 3\n");
     uint8_t option = 0b00000001;
     img1->LoadImage("Image-Folder/lena.jpg");
     loadCase(option, img1);
     img1->DumpImage("img1_case1.jpg");
+    img1->freePixels();
 
     option = 0b00000010;
     img1->LoadImage("Image-Folder/lena.jpg");
     loadCase(option, img1);
     img1->DumpImage("img1_case2.jpg");
+    img1->freePixels();
 
     option = 0b00000100;
     img1->LoadImage("Image-Folder/moon.jpg");
     loadCase(option, img1);
     img1->DumpImage("img1_case3.jpg");
+    img1->freePixels();
 
     option = 0b00001000;
     img1->LoadImage("Image-Folder/lena.jpg");
     loadCase(option, img1);
     img1->DumpImage("img1_case4.jpg");
+    img1->freePixels();
 
 
     // some photo mosaic driven code here

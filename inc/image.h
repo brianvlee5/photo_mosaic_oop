@@ -31,6 +31,7 @@ public:
     virtual void getRGBAvg(int &sum_r, int &sum_g, int &sum_b) = 0;
     virtual void replaceGrid(int i, int j, vector<Photo_data> &data_vec, Photo_data &last_used) = 0;
     virtual string findGrid(vector<Photo_data> &data_vec, int big_r, int big_g, int big_b, Photo_data &last_used) = 0;
+    virtual void freePixels() = 0;
 
 };
 

@@ -151,3 +151,13 @@ string RGBImage::findGrid(vector<Photo_data> &data_vec, int big_r, int big_g, in
     }
     return small_dir;
 }
+
+void RGBImage::freePixels(){
+    for(int i = 0; i < h; i++){
+        for(int j = 0; j < w; j++){
+            delete []pixels[i][j];
+        }
+        delete []pixels[i];
+    }
+    delete []pixels;
+}
