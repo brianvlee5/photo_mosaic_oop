@@ -3,7 +3,7 @@
 void loadCase(int8_t option, Image *img){
     if(option & CASE_ONE){
         printf("box filter detected\n");
-        img->boxFilter(3);
+        img->boxFilter(7);
     }
     if(option & CASE_TWO){
         printf("edge detect detected\n");

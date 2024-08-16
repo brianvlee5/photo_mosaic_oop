@@ -10,11 +10,13 @@
 #define SMALL_PIC 3
 
 int main(int argc, char *argv[]){
-    //Image *img1 = new GrayImage();
+    Image *img1 = new GrayImage();
     //img1->LoadImage("Image-Folder/mnist/img_100.jpg");
-    //img1->LoadImage("Image-Folder/cifar10/airplane_0001.png");
-    //img1->LoadImage("Image-Folder/fan.jpg");
-    //img1->LoadImage("Image-Folder/moon.jpg");
+    //img2->DumpImage("img2.jpg");
+    //img2->Display_X_Server();
+    //img2->Display_CMD();
+    ////img1->LoadImage("Image-Folder/cifar10/airplane_0001.png");
+    ////img1->LoadImage("Image-Folder/fan.jpg");
     
 
     //Image *img2 = new RGBImage();
@@ -24,19 +26,37 @@ int main(int argc, char *argv[]){
     //img2->Display_CMD();
 
     // some bit field filter design driven code here
-    //uint8_t option = 0b00000000;
+    img1->LoadImage("Image-Folder/lena.jpg");
+    img1->DumpImage("img1.jpg");
 
-    //loadCase(option, img1);
-    //img1->DumpImage("img1.jpg");
-    ////img1->Display_X_Server();
-    //img1->Display_CMD();
+    printf("step 3\n");
+    uint8_t option = 0b00000001;
+    img1->LoadImage("Image-Folder/lena.jpg");
+    loadCase(option, img1);
+    img1->DumpImage("img1_case1.jpg");
+
+    option = 0b00000010;
+    img1->LoadImage("Image-Folder/lena.jpg");
+    loadCase(option, img1);
+    img1->DumpImage("img1_case2.jpg");
+
+    option = 0b00000100;
+    img1->LoadImage("Image-Folder/moon.jpg");
+    loadCase(option, img1);
+    img1->DumpImage("img1_case3.jpg");
+
+    option = 0b00001000;
+    img1->LoadImage("Image-Folder/lena.jpg");
+    loadCase(option, img1);
+    img1->DumpImage("img1_case4.jpg");
+
 
     // some photo mosaic driven code here
     PhotoMosaic pm_obj;
     pm_obj.big_pic = new RGBImage();
 
     //initialize for testing
-    pm_obj.big_pic->LoadImage("Image-Folder/girl_2x.png");
+    pm_obj.big_pic->LoadImage("Image-Folder/oldman.jpg");
     pm_obj.small_pic_dirs.push_back("Image-Folder/cifar10");
 
     bool finish = false;
