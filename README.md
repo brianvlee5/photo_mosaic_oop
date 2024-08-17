@@ -4,3 +4,4 @@
 2. enter "make" to compile
 3. enter "./Image_Processing"
 4. follow the instructions that appear on the screen
+(I initialized the big picture and the directories for finding small pics, you can just run the program with it)
